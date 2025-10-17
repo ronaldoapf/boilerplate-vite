@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
+import { InputForm } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { FormProvider, useForm } from "react-hook-form"
 import { z } from "zod"
@@ -40,7 +40,7 @@ export function ForgotPasswordForm() {
           <Label className='leading-5' htmlFor='userEmail'>
             Email address*
           </Label>
-          <Input type='email' id='userEmail' placeholder='Enter your email address' />
+          <InputForm name="email" type='email' id='userEmail' placeholder='Enter your email address' />
         </div>
 
         <Button className='w-full' type='submit' isLoading={isSubmitting}>

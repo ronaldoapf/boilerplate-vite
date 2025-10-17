@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LoginPage from "./pages/login";
 import { ForgotPasswordPage } from "./pages/forgot-password";
 import { Toaster } from "./components/ui/sonner";
+import { ResetPasswordPage } from "./pages/reset-password";
 
 export function App() {
   return (
@@ -12,9 +13,10 @@ export function App() {
         <Routes>
           <Route path="/" index element={<LoginPage />} />
           <Route path="/forgot-password" element={<ForgotPasswordPage />} />
+          <Route path="/reset-password" element={<ResetPasswordPage />} />
         </Routes>
       </BrowserRouter>
-      <Toaster richColors closeButton position="top-right" />
+      <Toaster richColors closeButton position="top-center" />
     </QueryClientProvider>
   )
 }
