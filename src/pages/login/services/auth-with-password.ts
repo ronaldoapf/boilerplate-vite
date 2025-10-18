@@ -1,20 +1,21 @@
-import { axiosClient } from "@/api";
-import { useMutation } from "@tanstack/react-query";
+import { axiosClient } from '@/api'
+import { useMutation } from '@tanstack/react-query'
+import { AxiosError } from 'axios'
 
 interface AuthWithPasswordProps {
-  email: string;
-  password: string;
+	email: string
+	password: string
 }
 
-export function authWithPassword({
-  email, password
-}: AuthWithPasswordProps) {
-  const data = axiosClient.post("auth/password", { email, password });
-  return data
+export async function authWithPassword({
+	email,
+	password,
+}: AuthWithPasswordProps): Promise<void> {
+	await axiosClient.post('auth/password', { email, password })
 }
 
 export function useAuthWithPassword() {
-  return useMutation({
-    mutationFn: authWithPassword
-  })
+	return useMutation<void, AxiosError, AuthWithPasswordProps, unknown>({
+		mutationFn: authWithPassword,
+	})
 }
